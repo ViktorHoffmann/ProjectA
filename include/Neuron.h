@@ -6,7 +6,7 @@
 class Neuron{
 public:
 	double Input_value = NULL;
-	double Activated_valu = NULL;
+	double Activated_value = NULL;
 	double deriv_Activated_value = NULL;
 private:
 	double sigmoid(double Input_value){
