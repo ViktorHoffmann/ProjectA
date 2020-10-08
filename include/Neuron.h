@@ -1,7 +1,9 @@
 #pragma once
-// Class for Neuron object
 
 #include <cmath>
+
+
+// Class for Neuron object
 
 class Neuron{
 public:
