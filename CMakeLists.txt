@@ -3,4 +3,4 @@ project(testA)
 
 include_directories(include)
 
-add_executable(test src/main.cpp)
+add_executable(test src/main.cpp scr/Neuron.cpp scr/Weight.cpp)

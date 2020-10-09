@@ -8,13 +8,10 @@
 
 class Weight{
 public:
-	double input_value = NULL;
-private:
-	double weight = NULL;
-};
 
-Weight::Weight(void){
-	//Initialize Weight as random Numbers
-	srand (time(NULL));
-	weight = ((1)/(1+exp(-(rand() % 100 + 1))));
-}
+	Weight();
+	double input_value;
+	double weight;
+
+private:
+};
