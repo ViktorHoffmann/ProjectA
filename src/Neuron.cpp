@@ -1,4 +1,6 @@
 #include "Neuron.h"
+#include <iostream>
+#include <cstdio>
 
 Neuron::Neuron(void)
 {
@@ -11,6 +13,10 @@ void Neuron::init_bias(){
 
 double Neuron::get_bias(){
 	return bias;
+}
+
+void Neuron::init_input(){
+	Input_value = (rand() % 100 + 1) / 100.0;
 }
 
 double Neuron::sigmoid(double Input_value){

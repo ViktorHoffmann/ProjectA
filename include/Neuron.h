@@ -8,6 +8,7 @@ public:
 	Neuron();
 	void init_bias();
 	double get_bias();
+	void init_input();
 	double Input_value;
 	double bias;
 	double Activated_value;
