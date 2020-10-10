@@ -1,8 +1,15 @@
 #include "Weight.h"
+#include <iostream>
 
 Weight::Weight(void)
 {
+}
+
+void Weight::init_weight(){
 	//Initialize Weight as random Numbers
-	srand (time(NULL));
-	weight = ((1)/(1+exp(-(rand() % 100 + 1))));
+	weight = (rand() % 100 + 1) / 100.0;
+}
+
+double Weight::get_weight(){
+	return weight;
 }

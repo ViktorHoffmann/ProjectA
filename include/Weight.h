@@ -8,9 +8,9 @@
 
 class Weight{
 public:
-
 	Weight();
-	double input_value;
+	void init_weight();
+	double get_weight();
 	double weight;
 
 private:

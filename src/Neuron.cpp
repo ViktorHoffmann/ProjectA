@@ -2,7 +2,15 @@
 
 Neuron::Neuron(void)
 {
-	double Input_value = 0;
+}
+
+void Neuron::init_bias(){
+	//Initialize Bias as random Numbers
+	bias = (rand() % 100 + 1) / 100.0;
+}
+
+double Neuron::get_bias(){
+	return bias;
 }
 
 double Neuron::sigmoid(double Input_value){
