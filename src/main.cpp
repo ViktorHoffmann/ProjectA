@@ -28,19 +28,4 @@ int main() {
 			l2[j].deriv_Activated_value = l2[j].deriv_sigmoid(l2[j].Input_value);
 		}
 	}
-
-	std::cout << "Layer1 Neuron1 input: " << l1[0].Input_value << "\n";
-	std::cout << "Layer1 Neuron2 input: " << l1[1].Input_value << "\n";
-	std::cout << "Layer1 Neuron3 input: " << l1[2].Input_value << "\n";
-	std::cout << "Layer1 Neuron4 input: " << l1[3].Input_value << "\n\n";
-
-	std::cout << "Layer2 Neuron1 bias: " << l2[0].bias << "\n";
-	std::cout << "Layer2 Neuron2 bias: " << l2[1].bias << "\n";
-	std::cout << "Layer2 Neuron3 bias: " << l2[2].bias << "\n";
-	std::cout << "Layer2 Neuron4 bias: " << l2[3].bias << "\n\n";
-
-	std::cout << "Layer2 Neuron1 output: " << l2[0].Input_value << "\n";
-	std::cout << "Layer2 Neuron2 output: " << l2[1].Input_value << "\n";
-	std::cout << "Layer2 Neuron3 output: " << l2[2].Input_value << "\n";
-	std::cout << "Layer2 Neuron4 output: " << l2[3].Input_value << "\n\n";
 }
