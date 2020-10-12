@@ -1,14 +1,14 @@
 #include "Neuron.h"
-#include <iostream>
-#include <cstdio>
+#include "Pseudorandom.h"
 
 Neuron::Neuron(void)
 {
 }
 
-void Neuron::init_bias(){
+double Neuron::init_bias(double rand_num_min, double rand_num_max){
 	//Initialize Bias as random Numbers
-	bias = (rand() % 100 + 1) / 100.0;
+	bias = rand_num(rand_num_min, rand_num_max);
+	return 0;
 }
 
 double Neuron::get_bias(){

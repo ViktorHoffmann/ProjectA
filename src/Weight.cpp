@@ -1,13 +1,14 @@
 #include "Weight.h"
-#include <iostream>
+#include "Pseudorandom.h"
 
 Weight::Weight(void)
 {
 }
 
-void Weight::init_weight(){
+double Weight::init_weight(double rand_num_min, double rand_num_max){
 	//Initialize Weight as random Numbers
-	weight = (rand() % 100 + 1) / 100.0;
+	weight = rand_num(rand_num_min, rand_num_max);
+	return 0;
 }
 
 double Weight::get_weight(){
