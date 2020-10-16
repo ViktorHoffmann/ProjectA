@@ -12,9 +12,7 @@
 class Weight{
 public:
 	Weight();
-	double init_weight(double rand_num_min, double rand_num_max);
+	double init_weight(double rand_num_min, double rand_num_max, double rand_num_median, double rand_num_stdevi);
 	double get_weight();
-	double weight;
-
-private:
+	double weight_;
 };

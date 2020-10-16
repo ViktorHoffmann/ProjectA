@@ -5,24 +5,23 @@ Neuron::Neuron(void)
 {
 }
 
-double Neuron::init_bias(double rand_num_min, double rand_num_max){
+void Neuron::init_bias(double rand_num_min, double rand_num_max, double rand_num_median, double rand_num_stdevi){
 	//Initialize Bias as random Numbers
-	bias = rand_num(rand_num_min, rand_num_max);
-	return 0;
+	bias_ = gaussian_rand(rand_num_min, rand_num_max, rand_num_median, rand_num_stdevi);
 }
 
 double Neuron::get_bias(){
-	return bias;
+	return bias_;
 }
 
-void Neuron::init_input(){
-	Input_value = (rand() % 100 + 1) / 100.0;
+void Neuron::init_input(double rand_num_min, double rand_num_max){
+	input_value_ = rand_num(rand_num_min, rand_num_max);
 }
 
 double Neuron::sigmoid(double Input_value){
-	return Activated_value = ((1)/(1+exp(-(Input_value))));
+	return activated_value_ = ((1)/(1+exp(-(Input_value))));
 }
 
 double Neuron::deriv_sigmoid(double Input_value){
-	return deriv_Activated_value = (sigmoid(Input_value)*(1-sigmoid(Input_value)));
+	return deriv_Activated_value_ = (sigmoid(Input_value)*(1-sigmoid(Input_value)));
 }

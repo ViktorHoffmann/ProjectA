@@ -9,13 +9,13 @@
 class Neuron{
 public:
 	Neuron();
-	double init_bias(double rand_num_min, double rand_num_max);
+	void init_bias(double rand_num_min, double rand_num_max, double rand_num_median, double rand_num_stdevi);
 	double get_bias();
-	void init_input();
-	double Input_value;
-	double bias;
-	double Activated_value;
-	double deriv_Activated_value;
+	void init_input(double rand_num_min, double rand_num_max);
+	double input_value_;
+	double bias_;
+	double activated_value_;
+	double deriv_Activated_value_;
 	double sigmoid(double Input_value);
 	double deriv_sigmoid(double Input_value);
 };
