@@ -4,28 +4,28 @@
 #include "Pseudorandom.h"
 
 int main() {
-	Neuron l1 [4] = {};
-	Weight w1 [4][4] = {{},{},{},{}};
-	Neuron l2 [4] = {};
+	Neuron l[2][4] = {};
+	Weight w[1][4][4] = {};
+
 
 	for (int j = 0; j <= 3; j++)
 	{
 		for (int i = 0; i <= 3; i++)
 		{
-			l1[j].init_bias(0,1,0.5,1);
-			l1[j].init_input(0,1);
-			w1[j][i].init_weight(0,1,0.5,1);
-			l2[j].init_bias(0,1,0.5,1);
+			l[0][j].init_bias(0,1,0.5,1);
+			l[1][j].init_bias(0,1,0.5,1);
+			l[0][j].init_input(0,1);
+			w[0][j][i].init_weight(0,1,0.5,1);
 		}
 	}
 
-	for (int j = 0; j < (sizeof(l2)/sizeof(l2[0])); j++)
+	for (int j = 0; j < (sizeof(l[1])/sizeof(l[1][0])); j++)
 	{
-		for (int i = 0; i < (sizeof(l1)/sizeof(l1[0])); i++)
+		for (int i = 0; i < (sizeof(l[0])/sizeof(l[0][0])); i++)
 		{
-			l2[j].input_value_ = ((l1[i].input_value_) * (w1[i][j].weight_) + (l2[j].bias_));
-			l2[j].activated_value_ = l2[j].sigmoid(l2[j].input_value_);
-			l2[j].deriv_Activated_value_ = l2[j].deriv_sigmoid(l2[j].input_value_);
+			l[1][j].input_value_ = ((l[0][i].input_value_) * (w[0][i][j].weight_) + (l[1][j].bias_));
+			l[1][j].activated_value_ = l[1][j].sigmoid(l[1][j].input_value_);
+			l[1][j].deriv_Activated_value_ = l[1][j].deriv_sigmoid(l[1][j].input_value_);
 		}
 	}
 }
