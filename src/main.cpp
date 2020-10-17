@@ -1,12 +1,41 @@
 #include <iostream>
+#include <vector>
 #include "Neuron.h"
 #include "Weight.h"
 #include "Pseudorandom.h"
 
 int main() {
-	Neuron l[2][4] = {};
-	Weight w[1][4][4] = {};
+	int nLayers = 0;
+	std::vector<int> sizeLayers = {};
 
+	std::cout << "Number of layers: ";
+	std::cin >> nLayers;
+	std::cout << "\n";
+
+	if (nLayers >= 2)
+	{
+		//if atleast 2 layers are specified the size of those layers is set
+		for (int i = 0; i < nLayers; i++)
+		{
+			int size = 0;
+			std::cout << "Layer " << i << " size: ";
+			std::cin >> size;
+			std::cout << "\n";
+			sizeLayers.push_back(size);
+		}
+	}
+	else
+	{
+		std::cout << "error: minimum 2 layers required\n";
+		return 1;
+	}
+	
+	//set the size of the Neuron and Weight vectors according to the input vector
+	std::vector<std::vector<Neuron>>
+	l(0, std::vector<Neuron>(0));
+	
+	std::vector<std::vector<std::vector<Weight>>>
+	w(0, std::vector<std::vector<Weight>>(0, std::vector<Weight>(0)));
 
 	for (int j = 0; j <= 3; j++)
 	{

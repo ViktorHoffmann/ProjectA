@@ -6,7 +6,6 @@ Neuron::Neuron(void)
 }
 
 void Neuron::init_bias(double rand_num_min, double rand_num_max, double rand_num_median, double rand_num_stdevi){
-	//Initialize Bias as random Numbers
 	bias_ = gaussian_rand(rand_num_min, rand_num_max, rand_num_median, rand_num_stdevi);
 }
 
