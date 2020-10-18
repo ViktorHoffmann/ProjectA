@@ -9,7 +9,6 @@ int main() {
 	init_network();
 
 	std::cout << l[0][0].get_bias() << "\n";
-	return 0;
 	/*
 	std::cout << "> calculating error\n";
 	for (int k = 0; k < count; k++)
@@ -65,8 +64,8 @@ int init_network(){
 	std::cout << "> building network...\n";
 	
 	//reset vector
-	l.resize(0);
-	w.resize(0);
+	l.clear();
+	w.clear();
 	
 	for (int k = 0; k < neuronLayers.size(); k++)//layer iterator
 	{
