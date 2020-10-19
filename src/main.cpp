@@ -21,13 +21,11 @@ void init_network(){
 
 	if (nLayers >= 2)
 	{
-		//if atleast 2 layers are specified the size of those layers is set
 		for (int i = 0; i < nLayers; i++)
 		{
 			int size = 0;
 			std::cout << "Layer " << i+1 << " size: ";
 			std::cin >> size;
-			std::cout << "\n";
 			neuronLayers.push_back(size);
 		}
 	}
@@ -37,8 +35,7 @@ void init_network(){
 		return;
 	}
 
-	//set the size of the Neuron and Weight vectors according to the input vector
-	std::cout << "> building network...\n";
+	std::cout << "> building network\n...\n";
 	
 	//reset vectors
 	l.clear();
@@ -73,60 +70,14 @@ void init_network(){
 		}
 	}
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*
-	for (int k = 0; k < neuronLayers.size(); k++)//layer iterator
-	{
-		for (int j = 0; j < neuronLayers[k]/*start-layer size*; j++)
-		{
-			//neuron initialization
-			l.resize(neuronLayers.size(),std::vector<Neuron>(neuronLayers[k]));
-			l[k][j].init_bias(0,1,0.5,1);
-			
-			
-			std::cout << "l[" << k << "][" << j << "]: " << l[k][j].get_bias() << "\n";
-
-
-			if (k != (neuronLayers.size() - 1))//if not last layer: build weights
-			{
-				for (int i = 0; i < neuronLayers[k+1]/*end-layer size*; i++)
-				{
-					//weight initialization
-					w.resize(neuronLayers.size(), std::vector<std::vector<Weight>>(neuronLayers[k], std::vector<Weight>(neuronLayers[k+1])));
-					w[k][j][i].init_weight(0,1,0.5,1);
-
-
-					std::cout << "w[" << k << "][" << j << "][" << i << "]: " << w[k][j][i].get_weight() << "\n";
-
-
-				}
-			}
-		}
-	}
-	*/
 	std::cout << "> network build succesfully\n";
 }
 
-int main() {
-	init_network();
-	/*
-	std::cout << "> calculating error\n";
+void feed_network(){
+	std::cout << "> feeding network\n...\n";
+
+	double y_est = 0.0;
+
 	for (int k = 0; k < count; k++)
 	{
 		for (int j = 0; j < count; j++)
@@ -140,6 +91,16 @@ int main() {
 		}
 	}
 
-	std::cout << "> error: " <<
-	*/
+	std::cout << "> estimate calculated\n";
+}
+
+void calc_error(){
+	std::cout << "> calculating error\n...\n";
+}
+
+void backprop_network(){}
+
+int main() {
+	init_network();
+	calc_error();
 }
