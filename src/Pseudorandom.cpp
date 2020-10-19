@@ -33,5 +33,4 @@ double gaussian_rand(double rand_num_min, double rand_num_max, double rand_num_m
         std::cout << "error: unaccaptable range set\n";
         return 1;
     }
-    
 }

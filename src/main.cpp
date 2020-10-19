@@ -5,30 +5,7 @@
 #include "Weight.h"
 #include "Pseudorandom.h"
 
-int main() {
-	init_network();
-
-	std::cout << l[0][0].get_bias() << "\n";
-	/*
-	std::cout << "> calculating error\n";
-	for (int k = 0; k < count; k++)
-	{
-		for (int j = 0; j < count; j++)
-		{
-			for (int i = 0; i < count; i++)
-			{
-				l[j][i].input_value_ = ((l[j][i].input_value_) * (w[k][i][j].weight_) + (l[j][i].bias_));
-				l[j][i].activated_value_ = l[j][i].sigmoid(l[j][i].input_value_);
-				l[j][i].deriv_Activated_value_ = l[j][i].deriv_sigmoid(l[j][i].input_value_);
-			}
-		}
-	}
-
-	std::cout << "> error: " <<
-	*/
-}
-
-int init_network(){
+void init_network(){
 	/*
 	build and initialize network to 
 	user set size and fill random
@@ -57,34 +34,112 @@ int init_network(){
 	else
 	{
 		std::cout << "error: minimum 2 layers required\n";
-		return 1;
+		return;
 	}
 
 	//set the size of the Neuron and Weight vectors according to the input vector
 	std::cout << "> building network...\n";
 	
-	//reset vector
+	//reset vectors
 	l.clear();
 	w.clear();
-	
-	for (int k = 0; k < neuronLayers.size(); k++)//layer iterator
+
+	l.resize(neuronLayers.size(), std::vector<Neuron>(0));
+	w.resize((neuronLayers.size() - 1), std::vector<std::vector<Weight>>(0, std::vector<Weight>(0)));
+
+	for (int k = 0; k < neuronLayers.size(); k++)
 	{
-		for (int j = 0; j < neuronLayers[k]/*start-layer size*/; j++)
+		l[k].resize(neuronLayers[k]);
+		if (k < (neuronLayers.size() - 1))
 		{
-			//neuron initialization
-			l.resize(neuronLayers.size(),std::vector<Neuron>(neuronLayers[k]));
+			w[k].resize(neuronLayers[k], std::vector<Weight>(0));
+		}
+
+		for (int j = 0; j < neuronLayers[k]; j++)
+		{
 			l[k][j].init_bias(0,1,0.5,1);
-			if (neuronLayers[k] != neuronLayers.size())//if not last layer: build weights
+			if (k < (neuronLayers.size() - 1))
 			{
-				for (int i = 0; i < neuronLayers[k+1]/*end-layer size*/; i++)
+				w[k][j].resize(neuronLayers[k+1]);
+			}
+
+			if (k < (neuronLayers.size() - 1))
+			{
+				for (int i = 0; i < neuronLayers[k+1]; i++)
 				{
-					//weight initialization
-					w.resize(neuronLayers.size(), std::vector<std::vector<Weight>>(neuronLayers[k], std::vector<Weight>(neuronLayers[k+1])));
 					w[k][j][i].init_weight(0,1,0.5,1);
 				}
 			}
 		}
 	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+	for (int k = 0; k < neuronLayers.size(); k++)//layer iterator
+	{
+		for (int j = 0; j < neuronLayers[k]/*start-layer size*; j++)
+		{
+			//neuron initialization
+			l.resize(neuronLayers.size(),std::vector<Neuron>(neuronLayers[k]));
+			l[k][j].init_bias(0,1,0.5,1);
+			
+			
+			std::cout << "l[" << k << "][" << j << "]: " << l[k][j].get_bias() << "\n";
+
+
+			if (k != (neuronLayers.size() - 1))//if not last layer: build weights
+			{
+				for (int i = 0; i < neuronLayers[k+1]/*end-layer size*; i++)
+				{
+					//weight initialization
+					w.resize(neuronLayers.size(), std::vector<std::vector<Weight>>(neuronLayers[k], std::vector<Weight>(neuronLayers[k+1])));
+					w[k][j][i].init_weight(0,1,0.5,1);
+
+
+					std::cout << "w[" << k << "][" << j << "][" << i << "]: " << w[k][j][i].get_weight() << "\n";
+
+
+				}
+			}
+		}
+	}
+	*/
 	std::cout << "> network build succesfully\n";
-	return 0;
+}
+
+int main() {
+	init_network();
+	/*
+	std::cout << "> calculating error\n";
+	for (int k = 0; k < count; k++)
+	{
+		for (int j = 0; j < count; j++)
+		{
+			for (int i = 0; i < count; i++)
+			{
+				l[j][i].input_value_ = ((l[j][i].input_value_) * (w[k][i][j].weight_) + (l[j][i].bias_));
+				l[j][i].activated_value_ = l[j][i].sigmoid(l[j][i].input_value_);
+				l[j][i].deriv_Activated_value_ = l[j][i].deriv_sigmoid(l[j][i].input_value_);
+			}
+		}
+	}
+
+	std::cout << "> error: " <<
+	*/
 }
