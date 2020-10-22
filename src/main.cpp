@@ -55,6 +55,7 @@ void init_network(){
 		for (int j = 0; j < neuronLayers[k]; j++)
 		{
 			l[k][j].init_bias(0,1,0.5,1);
+			std::cout << "l[" << k << "][" << l << "]: " << l[k][j].get_bias() << "\n";
 			if (k < (neuronLayers.size() - 1))
 			{
 				w[k][j].resize(neuronLayers[k+1]);
@@ -65,6 +66,7 @@ void init_network(){
 				for (int i = 0; i < neuronLayers[k+1]; i++)
 				{
 					w[k][j][i].init_weight(0,1,0.5,1);
+					std::cout << "  w[" << k << "][" << j << "][" << i << "]: " << w[k][j][i].get_weight() << "\n";
 				}
 			}
 		}
