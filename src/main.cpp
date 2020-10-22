@@ -75,7 +75,7 @@ void init_network(){
 	std::cout << "> network build succesfully\n";
 }
 
-void feed_network(){
+/*void feed_network(){
 	std::cout << "> feeding network\n...\n";
 
 	double y_est = 0.0;
@@ -94,7 +94,7 @@ void feed_network(){
 	}
 
 	std::cout << "> estimate calculated\n";
-}
+}*/
 
 void calc_error(){
 	std::cout << "> calculating error\n...\n";
